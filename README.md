@@ -43,7 +43,7 @@ For the base assignment, if the user clicks a $200 question, the app will displa
 #### 1. Create your files
 
 * Start off by creating an `index.html`, `main.js`, and `styles.css`
-* In `index.html`, add two `script` tags to import firt `jeopardy.js` followed by `main.js`
+* In `index.html`, add two `script` tags to import first `jeopardy.js` followed by `main.js`
 * Also add a `link` tag to import `styles.css`
 * Finally, add `jquery` to your `index.html`. You can do this by adding the following line to your `<head>`
   * `<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>`
@@ -71,7 +71,7 @@ Now, in the JS, add a click listener to the submit button. When the submit butto
 
 If the user is incorrect, display a message telling them so along with the correct answer.
 
-If the user is correct, dispaly a congradulatory message!
+If the user is correct, display a congradulatory message!
 
 #### 5. Keeping score
 
@@ -79,17 +79,17 @@ In this step we'll add a score indicator.
 
 First, create a place to put the score in the HTML.
 
-Now, anytime a user gets a quetion right, add the score of that question (i.e.: $200) to the user's total score. One challenge here will be converting the string `"$200"` to the number `200`.
+Now, anytime a user gets a question right, add the score of that question (i.e.: $200) to the user's total score. One challenge here will be converting the string `"$200"` to the number `200`.
 
-Additionally, use the brower's local storage to save this score each time you update it.
+Additionally, use the browser's local storage to save this score each time you update it.
 
 Finally, add code so that when the page loads, the browser checks local storage to see if a saved score exists. If one does, that saved score is displayed instead of a default $0.
 
 ## Stretch goals
 
-* Make a square become grey and unclickable after being chosen.
+* Make a square become grey and un-clickable after being chosen.
 
-* Instead getting a random question everytime a button is pressed, populate the game with the questions from a single past Jeopardy game. To do this, randomly choose a valid 'show number' (see `jeopardy.js` data) and use all the questions with that show number. As part of this, display a category (found in the data) over each column of $ amounts.
+* Instead getting a random question every time a button is pressed, populate the game with the questions from a single past Jeopardy game. To do this, randomly choose a valid 'show number' (see `jeopardy.js` data) and use all the questions with that show number. As part of this, display a category (found in the data) over each column of $ amounts.
 
-* Expanding on the previous two stretch goals, make the game fully refreshable. Grayed out squares should stay grayed out on refresh and the same questions and categories that were chosen for the game should persist on refresh as well. You'll probably want to add a reset button as part of these changes.
+* Expanding on the previous two stretch goals, make the game fully refresh-able. Grayed out squares should stay grayed out on refresh and the same questions and categories that were chosen for the game should persist on refresh as well. You'll probably want to add a reset button as part of these changes.
 
