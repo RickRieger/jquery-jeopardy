@@ -1,5 +1,5 @@
 
- Levenshtein distance algorithm
+//  Levenshtein distance algorithm
 let recFindEditDistance = function(P, T, i, j) {
     if (i === undefined || j === undefined) return recFindEditDistance(P, T, P.length - 1, T.length - 1);
     if (i === 0 && j === 0) return 0;
