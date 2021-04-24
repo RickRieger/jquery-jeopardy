@@ -23,3 +23,6 @@ for (num=0;num<25;num= num+6){
     };    
     
 };
+
+jeopardySquares = $('.jeopardy-children');
+console.log(jeopardySquares);
