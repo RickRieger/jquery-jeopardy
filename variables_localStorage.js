@@ -12,7 +12,7 @@ let questionFocused = '';
 let correctAnswer = '';
 let userAnswer = '';
 let newCategory = '';
-let newIterationNum = 10;
+let iterationNumForDivIds = 10;
 
 
 

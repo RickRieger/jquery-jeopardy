@@ -28,18 +28,19 @@ function mainFunctionWhenSquareIsClicked(){
     dollars = $(this).text();
 
     // transforms element's id to match corresponding category
-    elementId = elementId.replaceAll('_', ' ');
-    elementId = elementId.replaceAll('.', '&');
-    newCategory = elementId;
-    newCategory = newCategory.split('');
-    newCategory = newCategory.slice(0, -3);
-    newCategory = newCategory.join('');
+
+
+    elementId = elementId.split('');
+    elementId = elementId.slice(0, -3);
+    elementId = elementId.join('');
     console.log(`category is (from element id): ${newCategory}`)
     console.log(`dollar value of box clicked: ${dollars}`);
     
     // sorts all objects accordingly by dollar value into a new array
     for (const question of ISOLATED_QUESTIONS){
-        if (question.value === dollars && question.category === newCategory){
+        let regexCategory = question.category;
+        regexCategory = regexCategory.replace(/[\W_]+/g,"");
+        if (question.value === dollars && regexCategory === elementId){
             newQuestionsArray.push(question);
         };
     };
@@ -80,16 +81,16 @@ for(i=0;i<6;i++){
 
 
 // Build flexBox Jeopardy board 
-for (const amount of moneyArray){
+for (num=0;num<25;num= num+6){
 
-    newIterationNum = newIterationNum + 1;
+    iterationNumForDivIds = iterationNumForDivIds + 1;
 
     for(i=0;i<6;i++){
         let category = ISOLATED_QUESTIONS[i].category;
-        category = category.replaceAll(' ', '_');
-        category = category.replaceAll('&', '.');
+        category = category.replace(/[\W_]+/g,"");
         
-        const jeopardyChild = $(`<div id = "${category}${newIterationNum}${i}" class = "jeopardy-children clickable">${amount}</div>`);
+        
+        const jeopardyChild = $(`<div id = "${category}${iterationNumForDivIds}${i}" class = "jeopardy-children clickable">${ISOLATED_QUESTIONS[num].value}</div>`);
         jeopardyContainer.append(jeopardyChild);
         
     };    
