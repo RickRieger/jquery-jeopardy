@@ -15,6 +15,10 @@ let userAnswer = '';
 let newCategory = '';
 let iterationNumForDivIds = 10;
 
+$('#theme-song')[0].play()
+
+
+
 // Using local storage for the game score
 let score = window.localStorage.getItem('score');
 

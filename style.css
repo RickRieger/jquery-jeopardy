@@ -110,6 +110,10 @@ input{
     color:rgb(223, 223, 0);
     transition: width 2s, height 2s, transform 2s;
 }
+.jeopardy-children:hover{
+    background-color:rgb(0, 0, 221);
+
+}
 .jeopardy-children-top-row{
     box-sizing: border-box;
     font-family: 'Bebas Neue', cursive;
@@ -119,6 +123,8 @@ input{
     width:16.66%;
     background-color:rgb(0, 23, 172) ;
     border:2px solid black;
+    border-top:6px solid black;
+    border-bottom:6px solid black;
     font-size:1.3em;
     color:whitesmoke;
     transition: width 2s, height 2s, transform 2s;
