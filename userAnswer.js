@@ -20,6 +20,9 @@ let recFindEditDistance = function(str1, str2) {
     if(str1 === str2){
         return 0;
     }
+    else{
+        return 5;
+    }
 };
 
 
@@ -30,14 +33,21 @@ function updateScoreCorrect(){
     dollars = dollars.replace(/[\W_]+/g,"");
     console.log(dollars);
     score = parseInt(score) + parseInt(dollars);
+    if(score < 0){
+        $(".score").css('color', 'red');
+    }
+    else{
+       
+        $('.score').css('color', 'rgb(223, 223, 0)');
+    }
     console.log(score);
     score = score.toString();
     console.log(score);
     $('#score-place-holder').text(score);
     console.log(score);
-    
     //local browser storage update!!!
     window.localStorage.setItem('score', score);
+
     
 }
 
@@ -47,12 +57,18 @@ function updateScoreIncorrect(){
     dollars = dollars.replace(/[\W_]+/g,"");
     console.log(dollars);
     score = parseInt(score) - parseInt(dollars);
+    if(score < 0){
+        $(".score").css('color', 'red');
+    }
+    else{
+       
+        $('.score').css('color', 'rgb(223, 223, 0)');
+    }
     console.log(score);
     score = score.toString();
     console.log(score);
     $('#score-place-holder').text(score);
     console.log(score);
-    
     //local browser storage update!!!
     window.localStorage.setItem('score', score);
 }
@@ -66,9 +82,7 @@ function answerIsCorrect(){
     timedFunctionCGetRidOfDiv();
     timedFunctionMakeJeopardyBoardAppear();
     timedFunctionRemoveQuestion();
-    
     $('#results').text('You answered correctly. Congratulations!!!')
-    
     updateScoreCorrect();
     
 }
@@ -79,9 +93,7 @@ function answerIsNotCorrect(){
     timedFunctionCGetRidOfDiv();
     timedFunctionMakeJeopardyBoardAppear();
     timedFunctionRemoveQuestion();
-    
     $('#results').text(`You answered incorrectly! The correct answer is ${correctAnswer}`);
-    
     updateScoreIncorrect()
     
 }

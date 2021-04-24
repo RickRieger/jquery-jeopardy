@@ -4,7 +4,33 @@ function removeSquareFromJeopardyBoard(elementID){
     $(`#${elementID}`).removeClass('clickable');
     $(`#${elementID}`).css("background-color", "grey");
     $(`#${elementID}`).off("click",mainFunctionWhenSquareIsClicked);
-    
+    greyedOutSquaresIDsArray.push(elementID);
+    window.localStorage.setItem('greyed-out-squares', greyedOutSquaresIDsArray);
+    console.log(greyedOutSquaresIDsArray);
+}
+
+function removeSquareFromJeopardyBoard2(elementID){
+    console.log(`element ID in remove square from: ${elementID}`)
+    $(`#${elementID}`).removeClass('clickable');
+    $(`#${elementID}`).css("background-color", "grey");
+    $(`#${elementID}`).off("click",mainFunctionWhenSquareIsClicked);
+}
+
+greyedOutSquaresIDsArray = window.localStorage.getItem('greyed-out-squares');
+console.log(greyedOutSquaresIDsArray);
+
+if (greyedOutSquaresIDsArray === null){
+
+    greyedOutSquaresIDsArray = [];
+
+}
+else{
+    greyedOutSquaresIDsArray = greyedOutSquaresIDsArray.split(',');
+
+    for(const square of greyedOutSquaresIDsArray){
+        removeSquareFromJeopardyBoard2(square);
+    }
+
 }
 
 function mainFunctionWhenSquareIsClicked(){
@@ -72,35 +98,20 @@ function mainFunctionWhenSquareIsClicked(){
 
 
 
-// Build the category row in Jeopardy board
-for(i=0;i<6;i++){
-    const jeopardyChild = $(`<div id = "jeopardy-child-${i}" class = "jeopardy-children-top-row">${ISOLATED_QUESTIONS[i].category}</div>`);
-    jeopardyContainer.append(jeopardyChild);
-    
-}
 
-
-// Build flexBox Jeopardy board 
-for (num=0;num<25;num= num+6){
-
-    iterationNumForDivIds = iterationNumForDivIds + 1;
-
-    for(i=0;i<6;i++){
-        let category = ISOLATED_QUESTIONS[i].category;
-        category = category.replace(/[\W_]+/g,"");
-        
-        
-        const jeopardyChild = $(`<div id = "${category}${iterationNumForDivIds}${i}" class = "jeopardy-children clickable">${ISOLATED_QUESTIONS[num].value}</div>`);
-        jeopardyContainer.append(jeopardyChild);
-        
-    };    
-    
-};
 
 
 
 // what happens when a Jeopardy block is clicked
 $('.clickable').on("click" , mainFunctionWhenSquareIsClicked);
+
+
+
+
+$('#clear-all').on("click" , ()=>{
+    window.localStorage.clear();
+    location.reload();
+});
 
 
 

@@ -28,12 +28,15 @@ body{
 }
  #container2{
     display: flex;
-    width:80vw;
-    height:10vh;
+    width:80%;
+    height:10%;
     padding: 1%;
     box-sizing: border-box;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content:space-around;
+    margin:auto;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Fira Sans', sans-serif;
     color:whitesmoke;
@@ -59,14 +62,17 @@ h3{
 a{
     color:orangered;
 }
-/* #container3{
-    display:flex;
-    width:80vw;
-    height:10vh;
-    padding:2%; 
+#container3{
+    display: flex;
+    width:80%;
+    padding: 10%;
+    box-sizing: border-box;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+    align-content:space-around;
+    margin:auto;
+}
 
 
 input{
@@ -120,8 +126,8 @@ input{
 
 
 h1{
-    margin-top:0%;
-    margin-bottom: .5%;
+    margin:auto;
+   
 }
 h2{
     margin-top:0%;
@@ -188,13 +194,15 @@ h2{
 button{
     width:20%;
     height:10%;
-   
     border-radius: 25px;
     outline: none;
     color:rgb(223, 222, 222);
     background-color: blue;
     font-size: 1.3rem;
     
+}
+#clear-all{
+    width:30%;
 }
 button:hover{
     background-color: rgb(0, 0, 221);
@@ -218,7 +226,7 @@ input{
 }
 
 .score{
-    color:rgb(223, 223, 0)
+    color:rgb(223, 223, 0);
 }
 
 span{

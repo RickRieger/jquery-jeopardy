@@ -46,7 +46,7 @@ function timedFunctionRemoveQuestion(newItem) {
         $('h3').remove()
         $('.questionPlace').remove()
         $('input').remove()
-        $('button').remove()
+        $('#submit-button').remove()
     }, 50);
 };
     
