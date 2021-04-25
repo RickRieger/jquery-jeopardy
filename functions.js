@@ -163,15 +163,16 @@ function handleUserAnswer(userAnswer){
     correctAnswer = correctAnswer.toString().toLowerCase();
     
     // Some REGEX to get rid of nonAlphaNumeric characters:)
-    userAnswer = userAnswer.replace(/[\W_]+/g," ");
-    correctAnswer = correctAnswer.replace(/[\W_]+/g," ");
+    // userAnswer = userAnswer.replace(/[\W_]+/g," ");
+    // correctAnswer = correctAnswer.replace(/[\W_]+/g," ");
     
-    let LevenshteinDistanceAlgorithmResults = (recFindEditDistance(userAnswer, correctAnswer));
-    
-    if (LevenshteinDistanceAlgorithmResults < 3){
+    // let LevenshteinDistanceAlgorithmResults = (recFindEditDistance(userAnswer, correctAnswer));
+    let resultCosinesimilarity = Cosinesimilarity(userAnswer,correctAnswer); 
+    console.log(resultCosinesimilarity);
+    if (resultCosinesimilarity >= .30 || resultCosinesimilarity === 0){
         answerIsCorrect()
     };
-    if (LevenshteinDistanceAlgorithmResults > 3){
+    if (resultCosinesimilarity < .30 && resultCosinesimilarity !== 0){
         answerIsNotCorrect()
     };
     
