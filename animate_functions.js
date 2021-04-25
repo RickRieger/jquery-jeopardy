@@ -1,11 +1,11 @@
 // Jeopardy board disappear (opacity:0 & display:none;)
 function timedFunctionMakeJeopardyBoardDisappear() {
-    setTimeout(function(){ $('.app').addClass('display')}, 300);
+    setTimeout(function(){ $('#app').addClass('display')}, 300);
 }
 function timedFunctionMakeJeopardyBoardAppear() {
     
-    setTimeout(function(){ $('.app').removeClass('display')}, 600);
-    $('.app').removeClass('opacity');
+    setTimeout(function(){ $('#app').removeClass('display')}, 600);
+    $('#app').removeClass('opacity');
 }
 
 
@@ -56,7 +56,6 @@ function timedFunctionRemoveQuestion(newItem) {
 function AddEventListenerAndGrabUserInput(){
     setTimeout(function(){
         $('#submit-button').click(function () {
-            console.log('it works')
                 userAnswer = $('#answer-question').val()
                 handleUserAnswer(userAnswer);
         });

@@ -1,11 +1,11 @@
 // Grey's out DIV and restricts a click listener
 function removeSquareFromJeopardyBoard(elementID){
-    console.log(`element ID in remove square from: ${elementID}`)
     $(`#${elementID}`).removeClass('clickable');
     $(`#${elementID}`).css("background-color", "grey");
     $(`#${elementID}`).off("click",mainFunctionWhenSquareIsClicked);
     greyedOutSquaresIDsArray.push(elementID);
     window.localStorage.setItem('greyed-out-squares', greyedOutSquaresIDsArray);
+    console.log("The array below is a collection of 'greyed out' squares;")
     console.log(greyedOutSquaresIDsArray);
 }
 
@@ -15,9 +15,8 @@ function removeSquareFromJeopardyBoard2(elementID){
     $(`#${elementID}`).css("background-color", "grey");
     $(`#${elementID}`).off("click",mainFunctionWhenSquareIsClicked);
 }
-
 greyedOutSquaresIDsArray = window.localStorage.getItem('greyed-out-squares');
-console.log(greyedOutSquaresIDsArray);
+
 
 if (greyedOutSquaresIDsArray === null){
 
@@ -32,6 +31,7 @@ else{
     }
 
 }
+
 
 function mainFunctionWhenSquareIsClicked(){
     
@@ -55,11 +55,10 @@ function mainFunctionWhenSquareIsClicked(){
 
     // transforms element's id to match corresponding category
 
-
     elementId = elementId.split('');
     elementId = elementId.slice(0, -3);
     elementId = elementId.join('');
-    console.log(`category is (from element id): ${newCategory}`)
+    console.log(`category is (from element id): ${elementId}`)
     console.log(`dollar value of box clicked: ${dollars}`);
     
     // sorts all objects accordingly by dollar value into a new array
@@ -70,11 +69,13 @@ function mainFunctionWhenSquareIsClicked(){
             newQuestionsArray.push(question);
         };
     };
+
+    // console.log() to see the new array
+    console.log("below is the new array of questions based on user interaction:")
     console.log(newQuestionsArray)
 
 
-    // isolate a random question and random answer from the new array
-    // (the random function is in it's own file)
+    // isolate a random question and answer from the new array
     questionObject = random(newQuestionsArray);
     questionFocused = questionObject.question;
     correctAnswer = questionObject.answer;
@@ -91,23 +92,22 @@ function mainFunctionWhenSquareIsClicked(){
     timedFunctionPlaceQuestion(newItem);
     AddEventListenerAndGrabUserInput();
     
-    // clears the array for the next question (sigh)
+    // clears the array for the next question
     newQuestionsArray = []; 
 };
 
 
 
 
+// This needs to be here for the intro/div color change
+jeopardySquaresArray = $('.jeopardy-children');
 
 
 
-
-// what happens when a Jeopardy block is clicked
+// click listener for square
 $('.clickable').on("click" , mainFunctionWhenSquareIsClicked);
 
-
-
-
+// click listener for new game button
 $('#clear-all').on("click" , ()=>{
     window.localStorage.clear();
     location.reload();

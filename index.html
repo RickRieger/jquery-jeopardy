@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,9 +17,9 @@
 
 
 <body> 
-    <div class="app">
+    <div id="app">
         <div id="container1">
-            <img src="logo.png" alt="" class="src">
+            <img src="logo.png" alt="jeopardy-logo" class="src">
             <h2>Your score: <span class = "score">$</span><span class = "score" id = "score-place-holder"></span></h2>
             <div id="jeopardy-container"></div>
         </div> 
@@ -34,18 +35,21 @@
         <audio id="board-full-sound">
             <source src="sounds/board-full-sound.m4a" type="audio/mp3">
         </audio>
+        <audio id="right-answer-sound">
+            <source src="sounds/right-answer-sound.mp3" type="audio/mp3">
+        </audio>
+        <audio id="wrong-answer-sound">
+            <source src="sounds/wrong-answer-sound.mp3" type="audio/mp3">
+        </audio>
     </div>
 </div>
 
-
-
-<script src = "jeopardy.js"></script>
-<script src = "random-generator.js"></script>
-<script src = "variables_localStorage.js"></script>
-<script src = "showNumber.js"></script>
-<script src = "userAnswer.js"></script>
-<script src = "timedFunctions.js"></script>
-<script src = "jeopardy-board.js"></script>
+<script src = "functions.js"></script>
+<script src = "animate_functions.js"></script>
+<script src = "questions.js"></script>
+<script src = "variables.js"></script>
+<script src = "showNum_andScore.js"></script>
+<script src = "gameBoardBuild_andSound.js"></script>
 <script src = "main.js"></script>
 
 </body>

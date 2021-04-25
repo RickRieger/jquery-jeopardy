@@ -121,9 +121,10 @@ input{
     align-items: center;
     justify-content: center;
     width:16.66%;
+    height:3em;
     background-color:rgb(0, 23, 172) ;
-    border:2px solid black;
-    border-top:6px solid black;
+    border:3px solid black;
+    border-top:5px solid black;
     border-bottom:6px solid black;
     font-size:1.3em;
     color:whitesmoke;
@@ -139,7 +140,7 @@ h2{
     margin-top:0%;
     margin-bottom: .5%;
 }
-.app{
+#{
     transition: all .7s linear;
     display: block;
 }
