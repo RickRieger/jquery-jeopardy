@@ -48,29 +48,34 @@ const random = function(arr) {
 //  collectively as edit distance. It is closely related to pairwise 
 //  string alignments.
 
-let recFindEditDistance = function(P, T, i, j) {
-    if (i === undefined || j === undefined) return recFindEditDistance(P, T, P.length - 1, T.length - 1);
-    if (i === 0 && j === 0) return 0;
-    if (i === 0) return j;
-    if (j === 0) return i;
+// let recFindEditDistance = function(P, T, i, j) {
+//     if (i === undefined || j === undefined) return recFindEditDistance(P, T, P.length - 1, T.length - 1);
+//     if (i === 0 && j === 0) return 0;
+//     if (i === 0) return j;
+//     if (j === 0) return i;
     
-    let sub = recFindEditDistance(P, T, i-1, j-1) + (P[i]===T[j] ? 0 : 1);
-    let del = recFindEditDistance(P, T, i, j-1) + 1;
-    let add = recFindEditDistance(P, T, i-1, j) + 1;
+//     let sub = recFindEditDistance(P, T, i-1, j-1) + (P[i]===T[j] ? 0 : 1);
+//     let del = recFindEditDistance(P, T, i, j-1) + 1;
+//     let add = recFindEditDistance(P, T, i-1, j) + 1;
     
-    return Math.min(sub, add, del);
-};
+//     return Math.min(sub, add, del);
+// };
+
+
+
 
 //  Rieger distance algorithm
 
-// let recFindEditDistance = function(str1, str2) {
+// let riegerDistanceAlgo = function(str1, str2) {
 //     if(str1 === str2){
-//         return 0;
+//         return 'you good';
 //     }
 //     else{
-//         return 5;
+//         return 'naw man';
 //     }
 // };
+
+
 
 
 function updateScoreCorrect(){
@@ -161,18 +166,12 @@ function handleUserAnswer(userAnswer){
     
     userAnswer = userAnswer.toString().toLowerCase();
     correctAnswer = correctAnswer.toString().toLowerCase();
-    
-    // Some REGEX to get rid of nonAlphaNumeric characters:)
-    // userAnswer = userAnswer.replace(/[\W_]+/g," ");
-    // correctAnswer = correctAnswer.replace(/[\W_]+/g," ");
-    
-    // let LevenshteinDistanceAlgorithmResults = (recFindEditDistance(userAnswer, correctAnswer));
-    let resultCosinesimilarity = Cosinesimilarity(userAnswer,correctAnswer); 
-    console.log(resultCosinesimilarity);
-    if (resultCosinesimilarity >= .30 || resultCosinesimilarity === 0){
+    let results = similarity(userAnswer, correctAnswer);
+    console.log(results);
+    if (results >= .50){
         answerIsCorrect()
     };
-    if (resultCosinesimilarity < .30 && resultCosinesimilarity !== 0){
+    if (results < .50){
         answerIsNotCorrect()
     };
     
