@@ -14,7 +14,7 @@ let userAnswer = '';
 let newCategory = '';
 let iterationNumForDivIds = 10;
 let indexForDivColorChange = 0;
-let colorChangingDiv = '';
+
 
 
 

@@ -35,7 +35,6 @@ else{
 
 function mainFunctionWhenSquareIsClicked(){
     
-    
     let elementId = $(this).attr("id");
     console.log(`Element id that was clicked: ${elementId}`);
     
@@ -74,7 +73,6 @@ function mainFunctionWhenSquareIsClicked(){
     console.log("below is the new array of questions based on user interaction:")
     console.log(newQuestionsArray)
 
-
     // isolate a random question and answer from the new array
     questionObject = random(newQuestionsArray);
     questionFocused = questionObject.question;
@@ -84,7 +82,16 @@ function mainFunctionWhenSquareIsClicked(){
     console.log(questionObject);
     console.log(`The question is: ${questionFocused}`);
     console.log(`The answer is: ${correctAnswer}`);
-    
+
+    //sounds played when question is selected
+    if(questionObject.round === 'Double Jeopardy!'){
+        $('#double-sound')[0].play();
+
+    }
+    else{
+        $('#populate-question-sound')[0].play();
+    }
+
     // make new DOM element to display question
     const newItem = $(`<h3 class = "question">${questionFocused}</h3>`);
     
