@@ -62,7 +62,7 @@ a {
 #container3 {
   display: flex;
   width: 80%;
-  padding: 5%;
+  padding: 0%;
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
