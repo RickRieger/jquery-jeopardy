@@ -4,7 +4,7 @@
 // call a function after a specified number (in milliseconds).
 
 function randomDivColorChange(){
-    for (var i = 0; i < 125; i++) {
+    for (var i = 0; i < 135; i++) {
         
         (function(i) {
             

@@ -34,7 +34,7 @@ for (num=0;num<25;num= num+6){
     };      
 };
 
-
+$('#clear-all').css('display', 'block');
 
 
 

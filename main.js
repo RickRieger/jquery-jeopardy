@@ -85,8 +85,8 @@ function mainFunctionWhenSquareIsClicked(){
 
     //sounds played when question is selected
     if(questionObject.round === 'Double Jeopardy!'){
-        $('#double-sound')[0].play();
-
+       0
+ 
     }
     else{
         $('#populate-question-sound')[0].play();
