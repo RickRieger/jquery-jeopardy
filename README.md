@@ -1,6 +1,10 @@
 # jQuery Jeopardy
 
-Welcome to Jeopardy! In this assignment, you'll create an application that asks the user Jeopardy questions and save their score (even when the page is refreshed).
+This was a fun project!  I had a "ah-ha" moment laying in bed one night when I thought of how I would add animation to mimic the show as it happens on television.  A quick google search led me to available sounds to incorperate and  behold, a complete Jeopardy game.  The answers are logged in the console and you can check them out if you get stuck using the chrome dev tools. Occasionally, the game generates empty questions and I have not taken the time to search the very large file containing the questions.  In this case, just hit "new game".  
+
+Below are the instructions I followed.
+
+Welcome to Jeopardy In this project, you will create an application that asks the user Jeopardy questions and save their score (even when the page is refreshed).
 
 Check out a demo of what this might look like below:
 
