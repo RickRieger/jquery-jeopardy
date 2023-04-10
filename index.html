@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>jQuery-Jeopardy</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -21,6 +22,7 @@
 
 <body> 
     <div id="app">
+        <div id="overlay"></div>
         <div id="container1">
             <img src="logo.png" alt="jeopardy-logo" class="src">
             <h2>Your score: <span class = "score">$</span><span class = "score" id = "score-place-holder"></span></h2>
@@ -29,16 +31,20 @@
         <div id="container2">
             <h1 id="results"></h1>
         </div>
+        <div id='seconds-counter'></div>
         <div id="container3">
             <button id='clear-all'>NEW GAME</button>
         </div>
         <div id="container4">
-            <a href="https://github.com/RickRieger/jquery-jeopardy">Check out my source code here!</a>
+            <a href="https://github.com/RickRieger/jquery-jeopardy">Check out my GitHub repo here!</a>
         </div>
-        <label class="switch">
-            <input type="checkbox" checked id="toggle_sound">
-            <span class="slider round" ></span>
-          </label>
+        <div id="sound-button">
+            <h3 id="toggle-sound-label"></h3>
+            <label class="switch">
+                <input type="checkbox" checked id="toggle_sound">
+                <span class="slider round" ></span>
+            </label>
+        </div>
         <audio id="theme-song">
             <source src="sounds/theme-song.mp3" type="audio/mp3">
         </audio>

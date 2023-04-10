@@ -1,21 +1,44 @@
+// get value of sound bool from local storage
+let soundOnOrOff = window.localStorage.getItem('sound');
+// log value from local storage
+console.log('sound value from window==>', soundOnOrOff);
+// set value to button in dom
+if (soundOnOrOff === 'true') {
+  const elems = document.querySelectorAll('audio');
+  $('h3').text('sound on');
+  for (const el of elems) {
+    el.muted = false;
+    $('#toggle_sound')[0].checked = true;
+  }
+} else {
+  const elems = document.querySelectorAll('audio');
+  $('h3').text('sound off');
+  for (const el of elems) {
+    el.muted = true;
+    $('#toggle_sound')[0].checked = false;
+  }
+}
+// get that value from button in dom
 let button_toggle_value = $('#toggle_sound')[0].checked;
-
-console.log(button_toggle_value);
 
 $('#toggle_sound').change(function () {
   button_toggle_value = $('#toggle_sound')[0].checked;
-  console.log('sucka! ======>', button_toggle_value);
-  //   const elems = document.querySelectorAll('audio');
-  //   for (const el of elems) {
-  //     el.muted = button_toggle_value;
-  //     el.pause();
-  //   }
-});
+  console.log('checked button value real time ======>', button_toggle_value);
+  window.localStorage.setItem('sound', button_toggle_value);
+  const elems = document.querySelectorAll('audio');
+  if (button_toggle_value) {
+    $('h3').text('sound on');
+    console.log('hehe');
+  } else {
+    $('h3').text('sound off');
+    console.log('h0h0');
+  }
 
-let soundBoolean = window.localStorage.getItem('soundBoolean');
-if (!soundBoolean) {
-  window.localStorage.setItem('soundBoolean', false);
-}
+  for (const el of elems) {
+    el.muted = !button_toggle_value;
+    // el.pause();
+  }
+});
 
 // Grey's out DIV and restricts a click listener
 function removeSquareFromJeopardyBoard(elementID) {
@@ -121,6 +144,37 @@ $('.clickable').on('click', mainFunctionWhenSquareIsClicked);
 
 // click listener for new game button
 $('#clear-all').on('click', () => {
-  window.localStorage.clear();
-  location.reload();
+  let sound = window.localStorage.getItem('sound');
+  if (sound === 'true') {
+    window.localStorage.clear();
+    window.localStorage.setItem('sound', true);
+    location.reload();
+  } else {
+    window.localStorage.clear();
+    window.localStorage.setItem('sound', false);
+    location.reload();
+  }
 });
+
+// counter before game starts
+if (!greyedOutSquares) {
+  var seconds = 28;
+  var el = document.getElementById('seconds-counter');
+
+  function decrementSeconds() {
+    seconds -= 1;
+    el.innerText = 'Your game will start in ' + seconds + ' seconds.';
+    if (seconds === 0) {
+      clearInterval(myInterval);
+      el.innerText = 'Enjoy your game!';
+      setTimeout(() => {
+        $('#seconds-counter').css({ visibility: 'hidden' });
+        $('#overlay').remove();
+      }, 3000);
+    }
+  }
+  const myInterval = setInterval(decrementSeconds, 1000);
+} else {
+  console.log('overlay===>', greyedOutSquares);
+  $('#overlay').remove();
+}
