@@ -8,7 +8,7 @@ Welcome to Jeopardy In this project, you will create an application that asks th
 
 Check out a demo of what this might look like below:
 
-<img src="demo.gif"/>
+<img src="assets/demo.gif"/>
 
 ## Requirements
 
@@ -74,7 +74,7 @@ Now, in the JS, add a click listener to the submit button. When the submit butto
 
 If the user is incorrect, display a message telling them so along with the correct answer.
 
-If the user is correct, display a congradulatory message!
+If the user is correct, display a congratulatory message!
 
 #### 5. Keeping score
 

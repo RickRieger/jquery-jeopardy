@@ -1,16 +1,19 @@
 // sounds for the game and a call to the randomDivColorChange() function
-let greyedOutSquares = window.localStorage.getItem('greyed-out-squares');
-if (!greyedOutSquares) {
-  $('#theme-song')[0].play();
-  $('#theme-song').on('ended', () => {
-    $('#board-full-sound')[0].play();
+let intro = JSON.parse(window.localStorage.getItem("introPlayed"));
+
+if (!greyedOutSquares && !intro) {
+  console.log("dont work===>", greyedOutSquares, intro);
+  $("#theme-song")[0].play();
+  $("#theme-song").on("ended", () => {
+    $("#board-full-sound")[0].play();
     randomDivColorChange();
   });
-  $('#board-full-sound').on('ended', () => {
-    $('.jeopardy-children').attr({ style: '' });
+  $("#board-full-sound").on("ended", () => {
+    $(".jeopardy-children").attr({ style: "" });
+    window.localStorage.setItem("introPlayed", true);
   });
 } else {
-  $('.jeopardy-children').attr({ style: '' });
+  $(".jeopardy-children").attr({ style: "" });
 }
 
 // Build the category row in the jeopardy board
@@ -27,7 +30,7 @@ for (num = 0; num < 25; num = num + 6) {
 
   for (i = 0; i < 6; i++) {
     let category = ISOLATED_QUESTIONS[i].category;
-    category = category.replace(/[\W_]+/g, '');
+    category = category.replace(/[\W_]+/g, "");
     const jeopardyChild =
       $(`<div id = "${category}${iterationNumForDivIds}${i}" 
         class = "jeopardy-children clickable">${ISOLATED_QUESTIONS[num].value}</div>`);
@@ -35,4 +38,8 @@ for (num = 0; num < 25; num = num + 6) {
   }
 }
 
-$('#clear-all').css('display', 'block');
+const userName = window.localStorage.getItem("userName");
+
+$("#welcome-message").text(`Welcome ${userName}!`);
+
+$("#clear-all").css("display", "block");

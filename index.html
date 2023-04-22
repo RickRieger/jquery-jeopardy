@@ -1,85 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style-intro.css" />
     <title>jQuery-Jeopardy</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans&display=swap" rel="stylesheet">
-</head>
-
-
-
-<body> 
-    <div id="app">
-        <div id="overlay"></div>
-        <div id="container1">
-            <img src="logo.png" alt="jeopardy-logo" class="src">
-            <h2>Your score: <span class = "score">$</span><span class = "score" id = "score-place-holder"></span></h2>
-            <div id="jeopardy-container"></div>
-        </div> 
-        <div id="container2">
-            <h1 id="results"></h1>
-        </div>
-        <div id='seconds-counter'></div>
-        <div id="container3">
-            <button id='clear-all'>NEW GAME</button>
-        </div>
-        <div id="container4">
-            <a href="https://github.com/RickRieger/jquery-jeopardy">Check out my GitHub repo here!</a>
-        </div>
-        <div id="sound-button">
-            <h3 id="toggle-sound-label"></h3>
-            <label class="switch">
-                <input type="checkbox" checked id="toggle_sound">
-                <span class="slider round" ></span>
-            </label>
-        </div>
-        <audio id="theme-song">
-            <source src="sounds/theme-song.mp3" type="audio/mp3">
-        </audio>
-        <audio id="board-full-sound">
-            <source src="sounds/board-full-sound.m4a" type="audio/mp3">
-        </audio>
-        <audio id="right-answer-sound">
-            <source src="sounds/right-answer-sound.mp3" type="audio/mp3">
-        </audio>
-        <audio id="wrong-answer-sound">
-            <source src="sounds/wrong-answer-sound.mp3" type="audio/mp3">
-        </audio>
-        <audio id="insult-sound">
-            <source src="sounds/insult-sound.mp3" type="audio/mp3">
-        </audio>
-        <audio id="sad-trombone-sound">
-            <source src="sounds/sadtrombone.swf.mp3" type="audio/mp3">
-        </audio>
-        <audio id="double-sound">
-            <source src="sounds/double-sound.mp3" type="audio/mp3">
-        </audio>
-        <audio id="populate-question-sound">
-            <source src="sounds/populate-question-sound.mp3" type="audio/mp3">
-        </audio>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="intro">
+    <div id="main">
+      <img src="assets/logo.png" alt="jeopardy-logo" class="src" />
+      <p>You are about to enter a world of Jeopardy-Gaming Fun!</p>
+      <p>
+        Once you enter, please wait for the opening music to stop, then begin.
+      </p>
+      <p>
+        If you are unpleased with the question categories, feel free to click on
+        the "new game" button provided.
+      </p>
+      <p>
+        Best of Luck and NO CHEATING...so, no peeking in the console! &#x1F61C;
+      </p>
+      <form action="/jeopardy.html">
+        <p>Please select sound option:</p>
+          <input type="radio" id="on" name="sound_option" value="true" />  
+        <label for="on">ON</label><br />
+          <input type="radio" id="off" name="sound_option" value="false" />  
+        <label for="off">OFF</label><br />
+          <label for="fname">User name:</label>
+        <input type="text" id="name" name="name" />
+        <input type="submit" value="Submit" disabled="true" />
+        <br /><br />
+      </form>
+      <div id="errorMessageName">Please enter a user name</div>
+      <div id="errorMessageSoundOption">Please select sound option</div>
     </div>
-</div>
-
-<script src = "similarity.js"></script>
-<script src = "animate_functions.js"></script>
-<script src = "functions.js"></script>
-<script src = "questions.js"></script>
-<script src = "variables.js"></script>
-<script src = "showNum_andScore.js"></script>
-<script src = "gameBoardBuild_andSound.js"></script>
-<script src = "main.js"></script>
-
-</body>
+    <script src="validation.js"></script>
+  </body>
 </html>
