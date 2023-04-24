@@ -1,8 +1,7 @@
 // sounds for the game and a call to the randomDivColorChange() function
 let intro = JSON.parse(window.localStorage.getItem("introPlayed"));
 
-if (!greyedOutSquares && !intro) {
-  console.log("dont work===>", greyedOutSquares, intro);
+if (!greyedOutSquares && !intro && soundOn) {
   $("#theme-song")[0].play();
   $("#theme-song").on("ended", () => {
     $("#board-full-sound")[0].play();
