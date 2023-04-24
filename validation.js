@@ -1,8 +1,15 @@
+let showNum = window.localStorage.getItem("show-num");
+if (showNum) {
+  window.open("/jeopardy.html");
+}
+
 $("form").on("keyup click", () => {
   let name = $("input:text").val();
   let sound = $("form input[type='radio']:checked").val();
   if (name.length > 0) {
     $("#errorMessageName").text("");
+  } else {
+    $("#errorMessageName").text(" Please enter a user name");
   }
   if (sound) {
     $("#errorMessageSoundOption").text("");

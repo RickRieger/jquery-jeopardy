@@ -40,13 +40,6 @@
       <img src="assets/logo.png" alt="jeopardy-logo" class="src" />
       <p>You are about to enter a world of Jeopardy-Gaming Fun!</p>
       <p>
-        Once you enter, please wait for the opening music to stop, then begin.
-      </p>
-      <p>
-        If you are unpleased with the question categories, feel free to click on
-        the "new game" button provided.
-      </p>
-      <p>
         Best of Luck and NO CHEATING...so, no peeking in the console! &#x1F61C;
       </p>
       <form action="https://rickrieger.github.io/jquery-jeopardy/jeopardy.html">
@@ -54,14 +47,19 @@
           <input type="radio" id="on" name="sound_option" value="true" />  
         <label for="on">ON</label><br />
           <input type="radio" id="off" name="sound_option" value="false" />  
-        <label for="off">OFF</label><br />
+        <label for="off">OFF</label><br /><br />
           <label for="fname">User name:</label>
         <input type="text" id="name" name="name" />
+        <br />
         <input type="submit" value="Submit" disabled="true" />
         <br /><br />
       </form>
-      <div id="errorMessageName">Please enter a user name</div>
-      <div id="errorMessageSoundOption">Please select sound option</div>
+      <div id="errorMessageName" class="error-message">
+        Please enter a user name
+      </div>
+      <div id="errorMessageSoundOption" class="error-message">
+        Please select sound option
+      </div>
     </div>
     <script src="validation.js"></script>
   </body>
