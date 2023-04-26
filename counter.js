@@ -14,7 +14,7 @@ if (soundOn && !greyedOutSquares && !intro) {
       setTimeout(() => {
         $("#seconds-counter").css({ visibility: "hidden" });
         $("#overlay").remove();
-      }, 3000);
+      }, 1000);
     }
   }
   const myInterval = setInterval(decrementSeconds, 1000);
