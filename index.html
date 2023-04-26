@@ -38,9 +38,9 @@
   <body id="intro">
     <div id="main">
       <img src="assets/logo.png" alt="jeopardy-logo" class="src" />
-      <p>You are about to enter a world of Jeopardy-Gaming Fun!</p>
+      <p>You are about to play the game of Jeopardy.</p>
       <p>
-        Best of Luck and NO CHEATING...so, no peeking in the console! &#x1F61C;
+        Best of Luck, and NO CHEATING...no peeking in the console! &#x1F61C;
       </p>
       <form action="https://rickrieger.github.io/jquery-jeopardy/jeopardy.html">
         <p>Please select sound option:</p>
@@ -51,15 +51,22 @@
           <label for="fname">User name:</label>
         <input type="text" id="name" name="name" />
         <br />
-        <input type="submit" value="Submit" disabled="true" />
-        <br /><br />
+        <br />
+        <div id="errorMessageName" class="error-message">
+          Please enter a user name
+        </div>
+        <div id="errorMessageSoundOption" class="error-message">
+          Please select sound option
+        </div>
+        <br />
+        <input
+          type="submit"
+          value="Submit"
+          disabled="true"
+          id="submit-button"
+        />
+        <br />
       </form>
-      <div id="errorMessageName" class="error-message">
-        Please enter a user name
-      </div>
-      <div id="errorMessageSoundOption" class="error-message">
-        Please select sound option
-      </div>
     </div>
     <script src="validation.js"></script>
   </body>

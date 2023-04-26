@@ -7,12 +7,12 @@ $("form").on("keyup click", () => {
   let name = $("input:text").val();
   let sound = $("form input[type='radio']:checked").val();
   if (name.length > 0) {
-    $("#errorMessageName").text("");
+    $("#errorMessageName").css("visibility", "hidden");
   } else {
     $("#errorMessageName").text(" Please enter a user name");
   }
   if (sound) {
-    $("#errorMessageSoundOption").text("");
+    $("#errorMessageSoundOption").css("visibility", "hidden");
   }
   if (name.length > 25) {
     $("#errorMessageName").text("User name too long");
