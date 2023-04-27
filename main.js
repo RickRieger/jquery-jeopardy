@@ -139,10 +139,10 @@ $("#clear-all").on("click", () => {
   if (sound === "true") {
     window.localStorage.clear();
     window.localStorage.setItem("sound", true);
-    window.open("https://rickrieger.github.io/jquery-jeopardy/");
+    window.location.href = "https://rickrieger.github.io/jquery-jeopardy/";
   } else {
     window.localStorage.clear();
     window.localStorage.setItem("sound", false);
-    window.open("https://rickrieger.github.io/jquery-jeopardy/");
+    window.location.href = "https://rickrieger.github.io/jquery-jeopardy/";
   }
 });
