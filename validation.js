@@ -1,6 +1,7 @@
 let showNum = window.localStorage.getItem("show-num");
 if (showNum) {
-  window.open("https://rickrieger.github.io/jquery-jeopardy/jeopardy.html");
+  window.location.href =
+    "https://rickrieger.github.io/jquery-jeopardy/jeopardy.html";
 }
 
 $("form").on("keyup click", () => {
